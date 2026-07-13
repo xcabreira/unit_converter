@@ -8,19 +8,23 @@ const toCurrency = document.getElementById("toCurrency")
 // Pega o valor inserido
 var entered_value = document.getElementById("enteredValue")
 
-// Input mostrando os resultados
-var result = document.getElementById("resultado")
-
 // Declarando os valores
 const select_tipoConversao = tipoConversao.value
 const select_fromCurrency = fromCurrency.value
 const select_toCurrency = toCurrency.value
 
-function convert() {
-    if (fromCurrency.value === "usd" && toCurrency.value === "usd"){
-        calculo = entered_value.value * entered_value.value
+// Função para conversão de moedas
+async function convert() {
+
+    // Importa os dados de conversao em tempo real
+    const resposta = await fetch("https://economia.awesomeapi.com.br/json/last/USD-BRL");
+    const dados = await resposta.json();
+
+    // Verifica quais os selects e define qual sera a cotação
+    if (fromCurrency.value === "usd" && toCurrency.value === "brl"){
+        var calculo = entered_value.value * dados.USDBRL.bid;
         
-        console.log(result.innerHTML = `<input type='text' id='resultado'>${calculo}</input>`)
+        // Input mostrando os resultados
+        document.getElementById("resultado").value = calculo.toFixed(2);
     }
 }
-
