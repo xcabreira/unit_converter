@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unit converter</title>
+    <link rel="stylesheet" href="/assets/CSS/reset.css">
+    <link rel="stylesheet" href="/assets/CSS/style.css">
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main>
+        <section>
+            <div class="container">
+
+                <!-- Escolhe o tipo de conversao -->
+                <label for="tipo">Escolha para a conversão: </label>
+                <select name="tipoConversao" id="tipo">
+                    <option value="moeda">Moeda</option>
+                    <option value="medidas">Medidas</option>
+                    <option value="massa">Massa</option>
+                </select>
+
+                <!-- Insere o valor para conversao -->
+                <input id="enteredValue" type="number" placeholder="Insira um valor: ">
+
+                <!-- Escolhe de qual tipo é o valor inserido -->
+                <label for="fromCurrency">de:</label>
+                <select name="fromCurrency" id="fromCurrency">
+                    <option value="usd">Dolar Americano</option>
+                    <option value="brl">Real Brasileiro</option>
+                    <option value="eur">Euro</option>
+                    <option value="clp">Pesos Chilenos</option>
+                </select>
+
+                <!-- Escolhe para qual tipo será convertido -->
+                <label for="toCurrency">para:</label>
+                <select name="toCurrency" id="toCurrency">
+                    <option value="usd">Dolar Americano</option>
+                    <option value="brl">Real Brasileiro</option>
+                    <option value="eur">Euro</option>
+                    <option value="clp">Pesos Chilenos</option>
+                </select>
+
+                <!-- Mostra o resultado da conversão -->
+                 <button id="btn" onclick="convert()">Converter</button>
+                <label for="resultado">Resultado: </label>
+                <input type="text" id="resultado" >
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy Cabreira.dev - Todos os direitos reservados</p>
+    </footer>
+    <script src="/assets/JS/script.js"></script>
+</body>
+
+</html>
