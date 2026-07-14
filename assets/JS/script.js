@@ -27,7 +27,7 @@ function typeConvert(){
                 <option value="mm">Milimetros</option>
                 <option value="pol">Polegadas</option>`);
     }
-    if (tipoConversao.value === "moedas"){
+    if (tipoConversao.value === "moeda"){
         fromCurrency.innerHTML = (`
                 <option value="usd">Dolar Americano</option>
                 <option value="brl">Real Brasileiro</option>
@@ -40,7 +40,7 @@ function typeConvert(){
                 <option value="clp">Pesos Chilenos</option>
             `);
     }
-    if (tipoConversao.value === "massas"){
+    if (tipoConversao.value === "massa"){
         fromCurrency.innerHTML = (`
                 <option value="kg">Quilograma</option>
                 <option value="g">Grama</option>
@@ -54,11 +54,12 @@ function typeConvert(){
     }
 }
 
-// Função para conversão de moedas
+// Função para conversão
 async function convert() {
     const resposta = await fetch("https://economia.awesomeapi.com.br/json/last/USD-BRL,USD-EUR,USD-CLP,BRL-USD,BRL-EUR,BRL-CLP,EUR-USD,EUR-CLP,EUR-BRL,CLP-USD,CLP-EUR,CLP-BRL");
     const dados = await resposta.json();
 
+    //MOEDAS
     // Dolar para Real BR
     if (fromCurrency.value === "usd" && toCurrency.value === "brl"){
         var calculo = entered_value.value * dados.USDBRL.bid;
@@ -126,6 +127,26 @@ async function convert() {
     // Converte CM para Metros
     if (fromCurrency.value == "cm" && toCurrency.value == "mt") {
         var calculo = entered_value.value / 100;
+        document.getElementById("resultado").value = calculo;
+    }
+    // Converte CM para MM
+    if (fromCurrency.value == "cm" && toCurrency.value == "mm") {
+        var calculo = entered_value.value * 10;
+        document.getElementById("resultado").value = calculo;
+    }
+    // Converte CM para Polegadas
+    if (fromCurrency.value == "cm" && toCurrency.value == "pol") {
+        var calculo = entered_value.value / 2.54;
+        document.getElementById("resultado").value = calculo;
+    }
+    // Converte Metros para CM
+     if (fromCurrency.value == "mt" && toCurrency.value == "cm") {
+        var calculo = entered_value.value * 100;
+        document.getElementById("resultado").value = calculo;
+    }
+    // Converter Metros para MM
+     if (fromCurrency.value == "mt" && toCurrency.value == "mm") {
+        var calculo = entered_value.value * 1000;
         document.getElementById("resultado").value = calculo;
     }
 }
