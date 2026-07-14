@@ -19,14 +19,14 @@
 
                 <!-- Escolhe o tipo de conversao -->
                 <label for="tipo">Escolha para a conversão: </label>
-                <select name="tipoConversao" id="tipo">
+                <select name="tipoConversao" onchange="typeConvert()" id="tipo">
                     <option value="moeda">Moeda</option>
                     <option value="medidas">Medidas</option>
                     <option value="massa">Massa</option>
                 </select>
 
                 <!-- Insere o valor para conversao -->
-                <input id="enteredValue" type="number" placeholder="Insira um valor: ">
+                <input id="enteredValue" type="number" placeholder="Insira um valor: " required>
 
                 <!-- Escolhe de qual tipo é o valor inserido -->
                 <label for="fromCurrency">de:</label>

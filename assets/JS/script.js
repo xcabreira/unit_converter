@@ -13,6 +13,47 @@ const select_tipoConversao = tipoConversao.value
 const select_fromCurrency = fromCurrency.value
 const select_toCurrency = toCurrency.value
 
+// Função para verificar qual o tipo da conversao
+function typeConvert(){
+    if (tipoConversao.value === "medidas"){
+        fromCurrency.innerHTML = (`
+                <option value="cm">Centimetros</option>
+                <option value="mt">Metros</option>
+                <option value="mm">Milimetros</option>
+                <option value="pol">Polegadas</option>`);
+        toCurrency.innerHTML = (`
+                <option value="cm">Centimetros</option>
+                <option value="mt">Metros</option>
+                <option value="mm">Milimetros</option>
+                <option value="pol">Polegadas</option>`);
+    }
+    if (tipoConversao.value === "moedas"){
+        fromCurrency.innerHTML = (`
+                <option value="usd">Dolar Americano</option>
+                <option value="brl">Real Brasileiro</option>
+                <option value="eur">Euro</option>
+                <option value="clp">Pesos Chilenos</option>  `);
+        toCurrency.innerHTML = (`
+                <option value="usd">Dolar Americano</option>
+                <option value="brl">Real Brasileiro</option>
+                <option value="eur">Euro</option>
+                <option value="clp">Pesos Chilenos</option>
+            `);
+    }
+    if (tipoConversao.value === "massas"){
+        fromCurrency.innerHTML = (`
+                <option value="kg">Quilograma</option>
+                <option value="g">Grama</option>
+                <option value="mg">Miligrama</option>
+                <option value="lb">Libras</option> `);
+        toCurrency.innerHTML = (`
+                <option value="kg">Quilograma</option>
+                <option value="g">Grama</option>
+                <option value="mg">Miligrama</option>
+                <option value="lb">Libras</option> `);
+    }
+}
+
 // Função para conversão de moedas
 async function convert() {
     const resposta = await fetch("https://economia.awesomeapi.com.br/json/last/USD-BRL,USD-EUR,USD-CLP,BRL-USD,BRL-EUR,BRL-CLP,EUR-USD,EUR-CLP,EUR-BRL,CLP-USD,CLP-EUR,CLP-BRL");
@@ -78,8 +119,14 @@ async function convert() {
         var calculo = entered_value.value * dados.CLPUSD.bid;
         document.getElementById("resultado").value = calculo.toFixed(2);
     }
-    else{
-        mesmo_valor = entered_value.value;
-        return document.getElementById("resultado").value = mesmo_valor;
+    
+
+    // MEDIDAS
+
+    // Converte CM para Metros
+    if (fromCurrency.value == "cm" && toCurrency.value == "mt") {
+        var calculo = entered_value.value / 100;
+        document.getElementById("resultado").value = calculo;
     }
 }
+
