@@ -45,12 +45,12 @@ function typeConvert(){
                 <option value="kg">Quilograma</option>
                 <option value="g">Grama</option>
                 <option value="mg">Miligrama</option>
-                <option value="lb">Libras</option> `);
+                <option value="lb">Libra</option> `);
         toCurrency.innerHTML = (`
                 <option value="kg">Quilograma</option>
                 <option value="g">Grama</option>
                 <option value="mg">Miligrama</option>
-                <option value="lb">Libras</option> `);
+                <option value="lb">Libra</option> `);
     }
 }
 
@@ -127,62 +127,62 @@ async function convert() {
     // Converte CM para Metros
     if (fromCurrency.value == "cm" && toCurrency.value == "mt") {
         var calculo = entered_value.value / 100;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     // Converte CM para MM
     if (fromCurrency.value == "cm" && toCurrency.value == "mm") {
         var calculo = entered_value.value * 10;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     // Converte CM para Polegadas
     if (fromCurrency.value == "cm" && toCurrency.value == "pol") {
         var calculo = entered_value.value / 2.54;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     // Converte Metros para CM
      if (fromCurrency.value == "mt" && toCurrency.value == "cm") {
         var calculo = entered_value.value * 100;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     // Converter Metros para MM
      if (fromCurrency.value == "mt" && toCurrency.value == "mm") {
         var calculo = entered_value.value * 1000;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     // Converter Metros para polegadas
      if (fromCurrency.value == "mt" && toCurrency.value == "pol") {
         var calculo = entered_value.value * 39.37;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     //Converter MM para CM
     if (fromCurrency.value == "mm" && toCurrency.value == "cm") {
         var calculo = entered_value.value / 10;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     //Converter MM para Metros
     if (fromCurrency.value == "mm" && toCurrency.value == "mt") {
         var calculo = entered_value.value / 1000;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     //Converter MM para polegadas
     if (fromCurrency.value == "mm" && toCurrency.value == "pol") {
         var calculo = entered_value.value / 25.4;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     //Converter Polegadas para CM
     if (fromCurrency.value == "pol" && toCurrency.value == "cm") {
         var calculo = entered_value.value * 2.54;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     //Converter Polegadas para Metros
     if (fromCurrency.value == "pol" && toCurrency.value == "mt") {
         var calculo = entered_value.value / 39.37;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     //Converter Polegadas para MM
     if (fromCurrency.value == "pol" && toCurrency.value == "mm") {
         var calculo = entered_value.value * 25.4;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
 
     // MASSAS
@@ -190,62 +190,66 @@ async function convert() {
     //Converte KG para Grama
     if (fromCurrency.value == "kg" && toCurrency.value == "g") {
         var calculo = entered_value.value * 1000;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     // Converte KG para MG
     if (fromCurrency.value == "kg" && toCurrency.value == "mg") {
         var calculo = entered_value.value * 1e+6;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     // Converte KG para Libra
     if (fromCurrency.value == "kg" && toCurrency.value == "lb") {
         var calculo = entered_value.value * 2.205;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     // Converte Grama para KG
      if (fromCurrency.value == "g" && toCurrency.value == "kg") {
         var calculo = entered_value.value / 1000;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     // Converter Grama para MG
      if (fromCurrency.value == "g" && toCurrency.value == "mg") {
         var calculo = entered_value.value * 1000;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     // Converter Grama para Libra
      if (fromCurrency.value == "g" && toCurrency.value == "lb") {
         var calculo = entered_value.value / 453.6;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     //Converter MG para KG
     if (fromCurrency.value == "mg" && toCurrency.value == "kg") {
         var calculo = entered_value.value / 1e+6;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     //Converter MG para G
     if (fromCurrency.value == "mg" && toCurrency.value == "g") {
         var calculo = entered_value.value / 1000;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     //Converter MG para Libra
     if (fromCurrency.value == "mg" && toCurrency.value == "lb") {
         var calculo = entered_value.value / 453600;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     //Converter Libra para KG
     if (fromCurrency.value == "lb" && toCurrency.value == "kg") {
         var calculo = entered_value.value / 2.205;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     //Converter Libra para G
     if (fromCurrency.value == "lb" && toCurrency.value == "g") {
         var calculo = entered_value.value * 453.6;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
     }
     //Converter libra para MG
     if (fromCurrency.value == "lb" && toCurrency.value == "mg") {
         var calculo = entered_value.value * 453600;
-        document.getElementById("resultado").value = calculo;
+        document.getElementById("resultado").value = calculo.toFixed(3);
+    }
+
+    else if (fromCurrency.value == toCurrency.value) {
+        document.getElementById("resultado").value = entered_value.value;
     }
 
 }
