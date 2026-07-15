@@ -10,8 +10,10 @@
 </head>
 
 <body>
-    <header>
-
+    <header class="nav-bar">
+        <nav>
+            <p class="h1page">CONVERSOR DE UNIDADES</p>
+        </nav>
     </header>
     <main>
         <section>
@@ -19,18 +21,18 @@
 
                 <!-- Escolhe o tipo de conversao -->
                 <label for="tipo">Escolha o tipo de conversão: </label>
-                <select name="tipoConversao" onchange="typeConvert()" id="tipo">
+                <select class="selectStyle" name="tipoConversao" onchange="typeConvert()" id="tipo">
                     <option value="moeda">Moeda</option>
                     <option value="medidas">Medidas</option>
                     <option value="massa">Massa</option>
                 </select>
 
                 <!-- Insere o valor para conversao -->
-                <input id="enteredValue" type="number" placeholder="Insira um valor: " required>
+                <input class="selectStyle" id="enteredValue" type="number" placeholder="Insira um valor: " required>
 
                 <!-- Escolhe de qual tipo é o valor inserido -->
                 <label for="fromCurrency">de:</label>
-                <select name="fromCurrency" id="fromCurrency">
+                <select class="selectStyle" name="fromCurrency" id="fromCurrency">
                     <option value="usd">Dolar Americano</option>
                     <option value="brl">Real Brasileiro</option>
                     <option value="eur">Euro</option>
@@ -39,7 +41,7 @@
 
                 <!-- Escolhe para qual tipo será convertido -->
                 <label for="toCurrency">para:</label>
-                <select name="toCurrency" id="toCurrency">
+                <select class="selectStyle" name="toCurrency" id="toCurrency">
                     <option value="usd">Dolar Americano</option>
                     <option value="brl">Real Brasileiro</option>
                     <option value="eur">Euro</option>
@@ -47,14 +49,14 @@
                 </select>
 
                 <!-- Mostra o resultado da conversão -->
-                 <button id="btn" onclick="convert()">Converter</button>
-                <label for="resultado">Resultado: </label>
-                <input type="text" id="resultado" readonly >
+                 <button class="selectStyle" id="btn" onclick="convert()">Converter</button>
+                <label  for="resultado">Resultado: </label>
+                <input class="selectStyle" type="text" id="resultado" readonly >
             </div>
         </section>
     </main>
-    <footer>
-        <p>&copy Cabreira.dev - Todos os direitos reservados</p>
+    <footer id="footer">
+        <p>&copy <a href="https://cabreira.dev" class="footerLink">Cabreira.dev</a> - Todos os direitos reservados</p>
     </footer>
     <script src="/assets/JS/script.js"></script>
 </body>
