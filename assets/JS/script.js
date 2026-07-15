@@ -149,5 +149,40 @@ async function convert() {
         var calculo = entered_value.value * 1000;
         document.getElementById("resultado").value = calculo;
     }
+    // Converter Metros para polegadas
+     if (fromCurrency.value == "mt" && toCurrency.value == "pol") {
+        var calculo = entered_value.value * 39.37;
+        document.getElementById("resultado").value = calculo;
+    }
+    //Converter MM para CM
+    if (fromCurrency.value == "mm" && toCurrency.value == "cm") {
+        var calculo = entered_value.value / 10;
+        document.getElementById("resultado").value = calculo;
+    }
+    //Converter MM para Metros
+    if (fromCurrency.value == "mm" && toCurrency.value == "mt") {
+        var calculo = entered_value.value / 1000;
+        document.getElementById("resultado").value = calculo;
+    }
+    //Converter MM para polegadas
+    if (fromCurrency.value == "mm" && toCurrency.value == "pol") {
+        var calculo = entered_value.value / 25.4;
+        document.getElementById("resultado").value = calculo;
+    }
+    //Converter Polegadas para CM
+    if (fromCurrency.value == "pol" && toCurrency.value == "cm") {
+        var calculo = entered_value.value * 2.54;
+        document.getElementById("resultado").value = calculo;
+    }
+    //Converter Polegadas para Metros
+    if (fromCurrency.value == "pol" && toCurrency.value == "mt") {
+        var calculo = entered_value.value / 39.37;
+        document.getElementById("resultado").value = calculo;
+    }
+    //Converter Polegadas para MM
+    if (fromCurrency.value == "pol" && toCurrency.value == "mm") {
+        var calculo = entered_value.value * 25.4;
+        document.getElementById("resultado").value = calculo;
+    }
 }
 
