@@ -184,5 +184,69 @@ async function convert() {
         var calculo = entered_value.value * 25.4;
         document.getElementById("resultado").value = calculo;
     }
+
+    // MASSAS
+
+    //Converte KG para Grama
+    if (fromCurrency.value == "kg" && toCurrency.value == "g") {
+        var calculo = entered_value.value * 1000;
+        document.getElementById("resultado").value = calculo;
+    }
+    // Converte KG para MG
+    if (fromCurrency.value == "kg" && toCurrency.value == "mg") {
+        var calculo = entered_value.value * 1e+6;
+        document.getElementById("resultado").value = calculo;
+    }
+    // Converte KG para Libra
+    if (fromCurrency.value == "kg" && toCurrency.value == "lb") {
+        var calculo = entered_value.value * 2.205;
+        document.getElementById("resultado").value = calculo;
+    }
+    // Converte Grama para KG
+     if (fromCurrency.value == "g" && toCurrency.value == "kg") {
+        var calculo = entered_value.value / 1000;
+        document.getElementById("resultado").value = calculo;
+    }
+    // Converter Grama para MG
+     if (fromCurrency.value == "g" && toCurrency.value == "mg") {
+        var calculo = entered_value.value * 1000;
+        document.getElementById("resultado").value = calculo;
+    }
+    // Converter Grama para Libra
+     if (fromCurrency.value == "g" && toCurrency.value == "lb") {
+        var calculo = entered_value.value / 453.6;
+        document.getElementById("resultado").value = calculo;
+    }
+    //Converter MG para KG
+    if (fromCurrency.value == "mg" && toCurrency.value == "kg") {
+        var calculo = entered_value.value / 1e+6;
+        document.getElementById("resultado").value = calculo;
+    }
+    //Converter MG para G
+    if (fromCurrency.value == "mg" && toCurrency.value == "g") {
+        var calculo = entered_value.value / 1000;
+        document.getElementById("resultado").value = calculo;
+    }
+    //Converter MG para Libra
+    if (fromCurrency.value == "mg" && toCurrency.value == "lb") {
+        var calculo = entered_value.value / 453600;
+        document.getElementById("resultado").value = calculo;
+    }
+    //Converter Libra para KG
+    if (fromCurrency.value == "lb" && toCurrency.value == "kg") {
+        var calculo = entered_value.value / 2.205;
+        document.getElementById("resultado").value = calculo;
+    }
+    //Converter Libra para G
+    if (fromCurrency.value == "lb" && toCurrency.value == "g") {
+        var calculo = entered_value.value * 453.6;
+        document.getElementById("resultado").value = calculo;
+    }
+    //Converter libra para MG
+    if (fromCurrency.value == "lb" && toCurrency.value == "mg") {
+        var calculo = entered_value.value * 453600;
+        document.getElementById("resultado").value = calculo;
+    }
+
 }
 
