@@ -9,7 +9,8 @@ const toCurrency = document.getElementById("toCurrency")
 var entered_value = document.getElementById("enteredValue")
 
 // Função para verificar qual o tipo da conversao
-function typeConvert(){
+
+tipoConversao.addEventListener('change', () => {
     if (tipoConversao.value === "medidas"){
         fromCurrency.innerHTML = (`
                 <option value="cm">Centimetros</option>
@@ -47,7 +48,7 @@ function typeConvert(){
                 <option value="mg">Miligrama</option>
                 <option value="lb">Libra</option> `);
     }
-}
+});
 
 // Função para conversão
 async function convert() {
