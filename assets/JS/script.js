@@ -23,6 +23,8 @@ tipoConversao.addEventListener('change', () => {
                 <option value="cm">Centimetros</option>
                 <option value="mm">Milimetros</option>
                 <option value="pol">Polegadas</option>`);
+        entered_value.style.border = ('none');
+        entered_value.placeholder = "Insira um valor: ";
     }
     if (tipoConversao.value === "moeda"){
         fromCurrency.innerHTML = (`
@@ -36,6 +38,8 @@ tipoConversao.addEventListener('change', () => {
                 <option value="eur">Euro</option>
                 <option value="clp">Pesos Chilenos</option>
             `);
+        entered_value.style.border = ('none');
+        entered_value.placeholder = "Insira um valor: ";
     }
     if (tipoConversao.value === "massa"){
         fromCurrency.innerHTML = (`
@@ -48,7 +52,28 @@ tipoConversao.addEventListener('change', () => {
                 <option value="kg">Quilograma</option>
                 <option value="mg">Miligrama</option>
                 <option value="lb">Libra</option> `);
+        entered_value.style.border = ('none');
+        entered_value.placeholder = "Insira um valor: ";
     }
+    if (tipoConversao.value === "none"){
+        fromCurrency.innerHTML = (`
+                <option value=""></option>
+                <option value="" disabled>Escolha um tipo de conversão</option>`);
+        toCurrency.innerHTML = (`
+                <option value=""></option>
+                <option value="" disabled>Escolha um tipo de conversão</option> `);
+        entered_value.placeholder = "Escolha primeiro o tipo de conversão!";
+    }
+});
+
+
+// Desativação e aviso de erro
+entered_value.addEventListener('keydown', (input) => {
+    if (tipoConversao.value === "none"){
+        entered_value.placeholder = "Escolha primeiro o tipo de conversão!";
+        input.preventDefault();
+        entered_value.style.border = ('solid 3px red');
+}
 });
 
 // Função para conversão
