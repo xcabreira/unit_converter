@@ -61,6 +61,12 @@ body {
     padding: 7px;
     border-radius: 10px;
     transition: all 0.3s ease;
+    appearance: none;
+}
+
+.selectStyle:focus {
+  outline: none;
+  border-color: #0066cc;
 }
 
 .selectStyle:hover{
