@@ -6,10 +6,12 @@ const fromCurrency = document.getElementById("fromCurrency")
 const toCurrency = document.getElementById("toCurrency")
 
 // Pega o valor inserido
-var entered_value = document.getElementById("enteredValue")
+var entered_value = document.getElementById("enteredValue");
+var input_result = document.getElementById("resultado");
+
 
 // Função para verificar qual o tipo da conversao
-function typeConvert(){
+tipoConversao.addEventListener('change', () => {
     if (tipoConversao.value === "medidas"){
         fromCurrency.innerHTML = (`
                 <option value="cm">Centimetros</option>
@@ -17,8 +19,8 @@ function typeConvert(){
                 <option value="mm">Milimetros</option>
                 <option value="pol">Polegadas</option>`);
         toCurrency.innerHTML = (`
-                <option value="cm">Centimetros</option>
                 <option value="mt">Metros</option>
+                <option value="cm">Centimetros</option>
                 <option value="mm">Milimetros</option>
                 <option value="pol">Polegadas</option>`);
     }
@@ -29,8 +31,8 @@ function typeConvert(){
                 <option value="eur">Euro</option>
                 <option value="clp">Pesos Chilenos</option>  `);
         toCurrency.innerHTML = (`
-                <option value="usd">Dolar Americano</option>
                 <option value="brl">Real Brasileiro</option>
+                <option value="usd">Dolar Americano</option>
                 <option value="eur">Euro</option>
                 <option value="clp">Pesos Chilenos</option>
             `);
@@ -42,12 +44,12 @@ function typeConvert(){
                 <option value="mg">Miligrama</option>
                 <option value="lb">Libra</option> `);
         toCurrency.innerHTML = (`
-                <option value="kg">Quilograma</option>
                 <option value="g">Grama</option>
+                <option value="kg">Quilograma</option>
                 <option value="mg">Miligrama</option>
                 <option value="lb">Libra</option> `);
     }
-}
+});
 
 // Função para conversão
 async function convert() {
@@ -121,8 +123,8 @@ async function convert() {
 
     // Converte CM para Metros
     if (fromCurrency.value == "cm" && toCurrency.value == "mt") {
-        var calculo = entered_value.value / 100;
-        document.getElementById("resultado").value = calculo;
+        var calculo_entrada = entered_value.value / 100;
+        document.getElementById("resultado").value = calculo_entrada;
     }
     // Converte CM para MM
     if (fromCurrency.value == "cm" && toCurrency.value == "mm") {

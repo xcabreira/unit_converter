@@ -21,38 +21,34 @@
             <div class="container">
 
                 <!-- Escolhe o tipo de conversao -->
-                <label for="tipo">Escolha o tipo de conversão: </label>
-                <select class="selectStyle" name="tipoConversao" onchange="typeConvert()" id="tipo">
+                <label for="tipo">Tipo de conversão: </label>
+                <select class="selectStyle" name="tipoConversao" id="tipo">
+                    <option value="">-- Escolha --</option>
                     <option value="moeda">Moeda</option>
                     <option value="medidas">Medidas</option>
                     <option value="massa">Massa</option>
                 </select>
 
                 <!-- Insere o valor para conversao -->
-                <input class="selectStyle" id="enteredValue" type="number" placeholder="Insira um valor: " required>
+                <input class="selectStyle" id="enteredValue" type="number" placeholder="Insira um valor: " oninput="convert()" required>
 
                 <!-- Escolhe de qual tipo é o valor inserido -->
                 <label for="fromCurrency">de:</label>
                 <select class="selectStyle" name="fromCurrency" id="fromCurrency">
-                    <option value="usd">Dolar Americano</option>
-                    <option value="brl">Real Brasileiro</option>
-                    <option value="eur">Euro</option>
-                    <option value="clp">Pesos Chilenos</option>
+                    <option value=""></option>
+                    <option value="" disabled>Escolha um tipo de conversão</option>
                 </select>
 
                 <!-- Escolhe para qual tipo será convertido -->
                 <label for="toCurrency">para:</label>
                 <select class="selectStyle" name="toCurrency" id="toCurrency">
-                    <option value="usd">Dolar Americano</option>
-                    <option value="brl">Real Brasileiro</option>
-                    <option value="eur">Euro</option>
-                    <option value="clp">Pesos Chilenos</option>
+                    <option value=""></option>
+                    <option value="" disabled>Escolha um tipo de conversão</option>
                 </select>
 
                 <!-- Mostra o resultado da conversão -->
-                 <button class="selectStyle" id="btn" onclick="convert()">Converter</button>
                 <label  for="resultado">Resultado: </label>
-                <input class="selectStyle" type="text" id="resultado" readonly >
+                <input class="selectStyle" type="number" id="resultado" >
             </div>
         </section>
     </main>
