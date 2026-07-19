@@ -68,7 +68,7 @@ dados.tipoConversao.addEventListener('change', () => {
 dados.entered_value.addEventListener('keydown', (input) => {
     if (dados.tipoConversao.value === "none"){
         dados.entered_value.placeholder = "Escolha primeiro o tipo de conversão!";
-        dados.input.preventDefault();
+        input.preventDefault();
         dados.entered_value.style.border = ('solid 3px red');
 }
 });

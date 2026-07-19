@@ -44,7 +44,6 @@ body {
     gap: 1vh;
     width: 60vh;
     height: 60vh;
-    flex: 1;
     box-shadow: 8px 8px 4px 0px rgba(0,0,0,0.4);
 }
 
