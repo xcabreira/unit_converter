@@ -12,11 +12,33 @@ body {
     background-color: #00BFFF;
     display: flex;
     padding: 5vh;
-    width: 100%;
-    position: relative;
     justify-content: center;
     align-items: center;
+    width: 100%;
     box-shadow: 8px 8px 5px 0 rgba(129, 216, 238, 0.4);
+}
+
+ul {
+    display: flex;
+    align-items: center;
+}
+
+#btn-theme {
+    background-color: #00BFFF;
+    position: relative;
+    left: 70%;
+}
+
+#black-theme {
+    width: 2rem;
+    height: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+#black-theme:hover{
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 .h1page {
