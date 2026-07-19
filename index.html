@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>unit converter</title>
-    <link rel="stylesheet" href="/assets/CSS/reset.css">
-    <link rel="stylesheet" href="/assets/CSS/style.css">
-    <link rel="shortcut icon" href="assets/IMG/exchange.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/CSS/reset.css">
+    <link rel="stylesheet" href="./assets/CSS/style.css">
+    <link rel="shortcut icon" href="./assets/IMG/exchange.png" type="image/x-icon">
 </head>
 
 <body>
@@ -30,7 +30,7 @@
                 </select>
 
                 <!-- Insere o valor para conversao -->
-                <input class="selectStyle" id="enteredValue" type="number" placeholder="Insira um valor: " oninput="convert()">
+                <input class="selectStyle" id="enteredValue" type="number" placeholder="Insira um valor: " >
 
                 <!-- Escolhe de qual tipo é o valor inserido -->
                 <label for="fromCurrency">de:</label>
@@ -55,7 +55,8 @@
     <footer id="footer">
         <p>&copy <a href="https://cabreira.dev" class="footerLink">Cabreira.dev</a> - Todos os direitos reservados</p>
     </footer>
-    <script src="/assets/JS/script.js"></script>
+    <script type="module" src="./assets/JS/script.js"></script>
+    <script src="./assets/JS/converter.js" type="module"></script>
 </body>
 
 </html>
