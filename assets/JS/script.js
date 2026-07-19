@@ -65,7 +65,7 @@ dados.tipoConversao.addEventListener('change', () => {
 });
 
 // Desativação e aviso de erro
-dados.entered_value.addEventListener('keydown', (input) => {
+dados.entered_value.addEventListener('input', (input) => {
     if (dados.tipoConversao.value === "none"){
         dados.entered_value.placeholder = "Escolha primeiro o tipo de conversão!";
         input.preventDefault();
@@ -74,7 +74,7 @@ dados.entered_value.addEventListener('keydown', (input) => {
 });
 
 //Evento para conversão direta
-dados.entered_value.addEventListener('keydown', () => {
+dados.entered_value.addEventListener('input', () => {
     convert();
 });
 

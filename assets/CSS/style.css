@@ -46,8 +46,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 2.5rem;
-    gap: 1px;
+    padding: 30px;
+    gap: 15px;
     width: 60vh;
     height: 60vh;
     box-shadow: 8px 8px 4px 0px rgba(0,0,0,0.4);
@@ -65,8 +65,8 @@ body {
 
 .selectStyle {
     background-color: var(--bg-body);
-    width: 45vh;
-    height: 45vh;
+    width: 40vh;
+    height: 60px;
     padding: 7px;
     border-radius: 10px;
     transition: all 0.3s ease;

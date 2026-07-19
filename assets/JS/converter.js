@@ -11,6 +11,118 @@ const toCurrency = document.getElementById("toCurrency")
 let entered_value = document.getElementById("enteredValue");
 let input_result = document.getElementById("resultado");
 
+const moedas = {
+    usd: {
+        nome: "Dólar Americano",
+        simbolo: "$",
+        converterPara: {
+            brl: 5.20,
+            eur: 0.92,
+            clp: 850
+        }
+    },
+    brl: {
+        nome: "Real Brasileiro",
+        simbolo: "R$",
+        converterPara: {
+            usd: 0.19,
+            eur: 0.18,
+            clp: 164
+        }
+    },
+    eur: {
+        nome: "Euro",
+        simbolo: "€",
+        converterPara: {
+            usd: 1.09,
+            brl: 5.56,
+            clp: 950
+        }
+    }
+};
+const medidas = { 
+            metros: {
+                nome: "Metros",
+                simbolo: "mt",
+                converterPara: {
+                    cm: 100,
+                    mm: 1000,
+                    pol: 39.37
+                }
+            }, 
+            centimetros: {
+                nome: "Centimetros",
+                simbolo: "cm",
+                converterPara: {
+                    mt: 0.01,
+                    mm: 10,
+                    pol: 0.3937
+                }
+            }, 
+            milimetros: {
+                nome: "Milimetros",
+                simbolo: "mm",
+                converterPara: {
+                    mt: 0.1,
+                    cm: 0.001,
+                    pol: 0.03937
+                }
+            }, 
+            polegadas: {
+                nome: "Polegadas",
+                simbolo: "pol",
+                converterPara: {
+                    mt: 0.0254,
+                    cm: 2.54,
+                    mm: 25.4
+                }
+            }
+};
+const massas = {
+            kilograma: {
+                nome: "Kilograma",
+                simbolo: "kg",
+                converterPara: {
+                    g: 1000,
+                    mg: 1e+6,
+                    lb: 2.205
+                }
+            },
+            grama: {
+                nome: "Grama",
+                simbolo: "g",
+                converterPara: {
+                    kg: 0.001,
+                    mg: 1000,
+                    lb: 453.6
+                }
+            },
+            miligrama: {
+                nome: "Miligrama",
+                simbolo: "mg",
+                converterPara: {
+                    kg: 1e+6,
+                    g: 0.001,
+                    lb: 453600
+                }
+            },
+            libra: {
+                nome: "Libra",
+                simbolo: "lb",
+                converterPara: {
+                    kg: 0.453592,
+                    g: 453.6,
+                    mg: 453600
+                }
+            }
+};
+
+const conversoes = {
+    moeda: moedas,
+    medida: medidas,
+    massa: massas
+};
+
 //Função de conversao
 export async function convert() {
     try {
@@ -210,6 +322,7 @@ export async function convert() {
         document.getElementById("resultado").value = entered_value.value;
     }
     } catch (erro){
+        alert("Offline, usando taxas aproximadas");
         console.error("Não foi possivel buscar dados: ", erro);
     }
 
