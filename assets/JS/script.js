@@ -63,6 +63,7 @@ dados.tipoConversao.addEventListener('change', () => {
         dados.input_result.value = "";
     }
 });
+
 // Desativação e aviso de erro
 dados.entered_value.addEventListener('keydown', (input) => {
     if (dados.tipoConversao.value === "none"){
