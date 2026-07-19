@@ -85,3 +85,4 @@ dados.fromCurrency.addEventListener('change', () => {
 dados.toCurrency.addEventListener('change', () => {
     convert();
 });
+

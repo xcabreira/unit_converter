@@ -12,14 +12,6 @@ body {
     width: 100%;
 }
 
-.selectStyle {
-    pointer-events: none;
-}
-
-.selectStyle:hover{
-        pointer-events: none;
-    }
-
 }
 
 @media (max-width: 915px) and (min-width: 768px){
@@ -29,9 +21,5 @@ body {
     
     .selectStyle {
         font-size: 2rem;
-    }
-
-    .selectStyle:hover{
-        pointer-events: none;
     }
 }

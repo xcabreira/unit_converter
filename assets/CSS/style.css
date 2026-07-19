@@ -1,5 +1,12 @@
+:root {
+    --bg-body: #FFFAFA;
+    --bg-panel: #00BFFF;
+    --text-color: #FFFAFA;
+    --color-footer: #DC143C;
+}
+
 body {
-    background-color: #FFFAFA;
+    background-color: var(--bg-body);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,43 +16,20 @@ body {
 }
 
 .nav-bar {
-    background-color: #00BFFF;
+    background-color: var(--bg-panel);
     display: flex;
-    padding: 5vh;
     justify-content: center;
     align-items: center;
+    padding: 5vh;
     width: 100%;
     box-shadow: 8px 8px 5px 0 rgba(129, 216, 238, 0.4);
-}
-
-ul {
-    display: flex;
-    align-items: center;
-}
-
-#btn-theme {
-    background-color: #00BFFF;
-    position: relative;
-    left: 70%;
-}
-
-#black-theme {
-    width: 2rem;
-    height: 2rem;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-#black-theme:hover{
-    cursor: pointer;
-    transform: scale(1.05);
 }
 
 .h1page {
     font-size: 3rem;
     font-weight: bold;
     font-style: italic;
-    color: #FFFAFA;
+    color: var(--text-color);
     transition: all 0.3s ease;
 }
 
@@ -56,7 +40,7 @@ ul {
 }
 
 .container {
-    background-color: #00BFFF;
+    background-color: var(--bg-panel);
     display: flex;
     border-radius: 6%;
     justify-content: center;
@@ -70,7 +54,7 @@ ul {
 }
 
 .container label {
-    color: #FFFAFA;
+    color: var(--text-color);
     font-size: 20px;
     font-weight: bold;
 }
@@ -80,7 +64,7 @@ ul {
 }
 
 .selectStyle {
-    background-color: #FFFAFA;
+    background-color: var(--bg-body);
     width: 45vh;
     height: 45vh;
     padding: 7px;
@@ -105,14 +89,14 @@ footer {
 
 .footerLink{
     text-decoration: none;
-    color: #DC143C;
+    color: var(--color-footer);
     transition: all 0.3s ease;
 }
 
 .footerLink:hover{
     cursor: pointer;
-    background-color: #DC143C;
-    color: #FFFAFA;
+    background-color: var(--color-footer);
+    color: var(--text-color);
     padding: 4px;
     border-radius: 5px;
     
