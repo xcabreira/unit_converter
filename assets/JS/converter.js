@@ -13,6 +13,7 @@ let input_result = document.getElementById("resultado");
 
 //Função de conversao
 export async function convert() {
+    try {
     const resposta = await fetch("https://economia.awesomeapi.com.br/json/last/USD-BRL,USD-EUR,USD-CLP,BRL-USD,BRL-EUR,BRL-CLP,EUR-USD,EUR-CLP,EUR-BRL,CLP-USD,CLP-EUR,CLP-BRL");
     const dados = await resposta.json();
 
@@ -207,6 +208,9 @@ export async function convert() {
     // Caso for o mesma unidade de conversao
     else if (fromCurrency.value == toCurrency.value) {
         document.getElementById("resultado").value = entered_value.value;
+    }
+    } catch (erro){
+        console.error("Não foi possivel buscar dados: ", erro);
     }
 
 };
