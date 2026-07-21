@@ -29,15 +29,14 @@ function converterUnidades(valor, categoria, origem, destino) {
     return document.getElementById("resultado").value = resultado.toPrecision(4);
 };
 
-async function converterMoedasApi(valor, origem, destino) {
+async function converterMoedasApi(origem, destino, valor) {
     const resposta = await fetch(`https://economia.awesomeapi.com.br/json/last/${origem}-${destino}`); 
     const dados = await resposta.json();
-
-    return valor * dados.value;
-
+    const resultado = valor * dados;
+    return document.getElementById("resultado").value = resultado.toFixed(2);
 }
 
-  console.log(converterMoedasApi(1, "BRL", "USD"));
+converterMoedasApi("BRL", "USD", 1);
 
 // USD-BRL,USD-EUR,USD-CLP,BRL-USD,BRL-EUR,BRL-CLP,EUR-USD,EUR-CLP,EUR-BRL,CLP-USD,CLP-EUR,CLP-BRL
 //Função para resetar campos
