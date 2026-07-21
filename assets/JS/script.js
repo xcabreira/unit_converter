@@ -36,18 +36,24 @@ function converterUnidades(valor, categoria, origem, destino) {
 
 //Função que busca na API a conversao em tempo real
 async function converterMoedasApi(origem, destino, valor) {
-    if (origem === destino) {
-        document.getElementById("resultado").value = valor;
-        return;
+    try {
+        if (origem === destino) {
+            document.getElementById("resultado").value = valor;
+            return;
+        }
+        const resposta = await fetch(`https://economia.awesomeapi.com.br/json/last/${origem}-${destino}`);
+        const dados = await resposta.json();
+
+        const chaveConversao = `${origem}${destino}`;
+        const resultado = valor * Number(dados[chaveConversao].bid);
+
+        return document.getElementById("resultado").value = resultado.toFixed(2);
+    } catch (error) {
+        inputResult.placeholder = `Conversão não encontrada!`;
     }
-    const resposta = await fetch(`https://economia.awesomeapi.com.br/json/last/${origem}-${destino}`);
-    const dados = await resposta.json();
-
-    const chaveConversao = `${origem}${destino}`;
-    const resultado = valor * Number(dados[chaveConversao].bid);
-
-    return document.getElementById("resultado").value = resultado.toFixed(2);
 }
+
+// Função de validar campos
 
 //Função para resetar campos
 function reset() {
