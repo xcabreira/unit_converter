@@ -16,7 +16,7 @@ Um projeto simples desenvolvido com **HTML**, **CSS** e **JavaScript** para conv
 
 ## Como usar
 
-1. Abra o arquivo `index.html` em seu navegador.
+1. Abra o arquivo `index.html` ou acesse o link `https://xcabreira.github.io/unit_converter/` em seu navegador.
 2. Informe o valor que deseja converter.
 3. Selecione a unidade de origem.
 4. Escolha a unidade de destino.
