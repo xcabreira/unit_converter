@@ -20,25 +20,35 @@ const conversoes = {
         mm: 0.001,
         pol: 39.37
     }
-    
+
 };
 
+// Função para conversao das unidades
 function converterUnidades(valor, categoria, origem, destino) {
-    const unidades = conversoes[categoria];
-    const resultado = valor * unidades[origem] / unidades[destino];
-    return document.getElementById("resultado").value = resultado.toPrecision(4);
+    try {
+        const unidades = conversoes[categoria];
+        const resultado = valor * unidades[origem] / unidades[destino];
+        return document.getElementById("resultado").value = resultado.toPrecision(4);
+    } catch (error) {
+        inputResult.placeholder = `Erro ao converter`;
+    }
 };
 
+//Função que busca na API a conversao em tempo real
 async function converterMoedasApi(origem, destino, valor) {
-    const resposta = await fetch(`https://economia.awesomeapi.com.br/json/last/${origem}-${destino}`); 
+    if (origem === destino) {
+        document.getElementById("resultado").value = valor;
+        return;
+    }
+    const resposta = await fetch(`https://economia.awesomeapi.com.br/json/last/${origem}-${destino}`);
     const dados = await resposta.json();
-    const resultado = valor * dados;
+
+    const chaveConversao = `${origem}${destino}`;
+    const resultado = valor * Number(dados[chaveConversao].bid);
+
     return document.getElementById("resultado").value = resultado.toFixed(2);
 }
 
-converterMoedasApi("BRL", "USD", 1);
-
-// USD-BRL,USD-EUR,USD-CLP,BRL-USD,BRL-EUR,BRL-CLP,EUR-USD,EUR-CLP,EUR-BRL,CLP-USD,CLP-EUR,CLP-BRL
 //Função para resetar campos
 function reset() {
     enteredValue.style.border = ('none');
@@ -62,20 +72,6 @@ tipoConversao.addEventListener('change', () => {
                 <option value="pol">Polegadas</option>`);
         reset();
     }
-    if (tipoConversao.value === "moeda") {
-        fromCurrency.innerHTML = (`
-                <option value="USD">Dolar Americano</option>
-                <option value="BRL">Real Brasileiro</option>
-                <option value="EUR">Euro</option>
-                <option value="CLP">Pesos Chilenos</option>  `);
-        toCurrency.innerHTML = (`
-                <option value="BRL">Real Brasileiro</option>
-                <option value="USD">Dolar Americano</option>
-                <option value="EUR">Euro</option>
-                <option value="CLP">Pesos Chilenos</option>
-            `);
-        reset();
-    }
     if (tipoConversao.value === "massa") {
         fromCurrency.innerHTML = (`
                 <option value="kg">Quilograma</option>
@@ -87,6 +83,19 @@ tipoConversao.addEventListener('change', () => {
                 <option value="kg">Quilograma</option>
                 <option value="mg">Miligrama</option>
                 <option value="lb">Libra</option> `);
+        reset();
+    }
+    if (tipoConversao.value === "moeda") {
+        fromCurrency.innerHTML = (`
+                <option value="BRL">Real Brasileiro</option>
+                <option value="USD">Dolár Americano</option>
+                <option value="EUR">Euro</option>
+                <option value="CLP">Peso Chileno</option>`);
+        toCurrency.innerHTML = (`
+                <option value="USD">Dolár Americano</option>
+                <option value="BRL">Real Brasileiro</option>
+                <option value="EUR">Euro</option>
+                <option value="CLP">Peso Chileno</option>`);
         reset();
     }
     if (tipoConversao.value === "none") {
@@ -102,30 +111,38 @@ tipoConversao.addEventListener('change', () => {
     }
 });
 
-// Desativação e aviso de erro
-enteredValue.addEventListener('input', (input) => {
-    if (tipoConversao.value === "none") {
-        enteredValue.placeholder = "Escolha primeiro o tipo de conversão!";
-        input.preventDefault();
-        enteredValue.style.border = ('solid 3px red');
-    }
-    else if (tipoConversao.value <= 0) {
-        enteredValue.placeholder = "O numero não pode ser negativo";
-        input.preventDefault();
-        enteredValue.style.border = ('solid 3px red');
-    };
-});
-
 //Evento para conversão direta
 enteredValue.addEventListener('input', () => {
-    converterUnidades(enteredValue.value, tipoConversao.value, fromCurrency.value, toCurrency.value);
+    if (tipoConversao.value === "moeda") {
+        converterMoedasApi(
+            toCurrency.value,
+            fromCurrency.value,
+            enteredValue.value);
+    } else {
+        converterUnidades(
+            enteredValue.value,
+            tipoConversao.value,
+            fromCurrency.value,
+            toCurrency.value);
+    }
 });
 
 //Evento de Conversao automatica na troca de unidades
-fromCurrency.addEventListener('change', () => {
-    converterUnidades(enteredValue.value, tipoConversao.value, fromCurrency.value, toCurrency.value);
-});
-toCurrency.addEventListener('change', () => {
-    converterUnidades(enteredValue.value, tipoConversao.value, fromCurrency.value, toCurrency.value);
-});
+function atualizarConversao() {
+    if (tipoConversao.value === "moeda") {
+        converterMoedasApi(
+            toCurrency.value,
+            fromCurrency.value,
+            enteredValue.value);
+    } else {
+        converterUnidades(
+            enteredValue.value,
+            tipoConversao.value,
+            fromCurrency.value,
+            toCurrency.value);
+    }
+}
+enteredValue.addEventListener('change', atualizarConversao);
+fromCurrency.addEventListener('change', atualizarConversao);
+toCurrency.addEventListener('change', atualizarConversao);
 
