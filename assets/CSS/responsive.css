@@ -53,7 +53,7 @@
 }
 
 /* Tablets */
-@media (max-width: 768px) {
+@media (min-width: 481px) {
     body {
         gap: 50px;
         font-size: 25px;
@@ -102,7 +102,6 @@
         cursor: default;
         transform: none;
     }
-    
     .footerLink {
         transition: none;
     }
