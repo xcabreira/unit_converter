@@ -1,25 +1,115 @@
-@media screen and (max-width: 475px){
-    
-body {
-    background-color: #00BFFF;
-}
-.h1page {
-    font-size: 1.3rem;
-    box-shadow: none;
-}
-.container {
-    box-shadow: none;
-    width: 100%;
-}
+@import url("./style.css");
 
-}
-
-@media (max-width: 915px) and (min-width: 768px){
-    .container label {
-        font-size: 2rem;
+/* Mobile */
+@media (max-width: 480px) {
+    body {
+        gap: 30px;
+        font-size: 16px;
     }
-    
+
+    .nav-bar {
+        padding: 3vh;
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .h1page {
+        font-size: 1.3rem;
+        transition: none;
+    }
+
+    .h1page:hover {
+        cursor: default;
+        transform: none;
+    }
+
+    .container {
+        border-radius: 20px;
+        padding: 25px;
+        gap: 20px;
+        width: 40vh;
+        height: 75vh;
+        box-shadow: none;
+    }
+
     .selectStyle {
-        font-size: 2rem;
+        width: 35vh;
+        transition: none;
+    }
+
+    .selectStyle:focus {
+        outline: none;
+        border-color: #0066cc;
+    }
+
+    .selectStyle:hover {
+        cursor: default;
+        transform: none;
+    }
+
+    .footerLink {
+        transition: none;
     }
 }
+
+/* Tablets */
+@media (max-width: 768px) {
+    body {
+        gap: 50px;
+        font-size: 25px;
+    }
+
+    .nav-bar {
+        padding: 4vh;
+        width: 100%;
+    }
+
+    .h1page {
+        font-size: 2.5rem;
+        transition: none;
+    }
+
+    .h1page:hover {
+        cursor: default;
+        transform: none;
+    }
+
+    .container {
+        border-radius: 30px;
+        padding: 10px;
+        gap: 10px;
+        width: 55vh;
+        height: 65vh;
+    }
+
+    .container label {
+        font-size: 1.8rem;
+    }
+
+    .selectStyle {
+        width: 40vh;
+        height: 75px;
+        transition: none;
+        font-size: 1.5rem;
+    }
+
+    .selectStyle:focus {
+        outline: none;
+        border-color: #0066cc;
+    }
+
+    .selectStyle:hover {
+        cursor: default;
+        transform: none;
+    }
+    
+    .footerLink {
+        transition: none;
+    }
+}
+
+/* Notebook */
+@media (max-width: 1024px) {}
+
+/* Desktop pequeno */
+@media (max-width: 1280px) {}

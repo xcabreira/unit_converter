@@ -69,7 +69,7 @@ enteredValue.addEventListener('input', () => {
         enteredValue.placeholder = "Apenas numeros positivos!";
         enteredValue.value = "";
     }
-     enteredValue.value = enteredValue.value.replace(/[eE+-]/g, "");
+    enteredValue.value = enteredValue.value.replace(/[eE+-]/g, "");
 });
 
 //Função para resetar campos
