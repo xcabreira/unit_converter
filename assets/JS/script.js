@@ -53,7 +53,24 @@ async function converterMoedasApi(origem, destino, valor) {
     }
 }
 
-// Função de validar campos
+// Função para desabilitar input se nao escolher a conversão
+tipoConversao.addEventListener('change', () => {
+    if (tipoConversao.value === "none") {
+        enteredValue.disabled = true;
+        enteredValue.placeholder = ("Escolha o tipo de conversão!");
+    } else {
+        enteredValue.disabled = false;
+    }
+});
+
+//Verificando se o numero é negativo ou contem outros caracteres
+enteredValue.addEventListener('input', () => {
+    if (enteredValue.value < 0) {
+        enteredValue.placeholder = "Apenas numeros positivos!";
+        enteredValue.value = "";
+    }
+     enteredValue.value = enteredValue.value.replace(/[eE+-]/g, "");
+});
 
 //Função para resetar campos
 function reset() {
